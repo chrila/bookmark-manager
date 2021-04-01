@@ -4,4 +4,8 @@ module BookmarkTypesHelper
     keys = hash.keys.map(&:name)
     [keys, hash.values].transpose.to_h
   end
+
+  def bookmark_types_for_select
+    BookmarkType.all.collect { |t| [t.name, t.id] }
+  end
 end
