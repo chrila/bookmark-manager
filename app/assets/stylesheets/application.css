@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 0;
+}
+
+.container {
+  margin-left: 2rem;
+}
+
+.navbar {
+  padding: 2rem;
+  background-color: black;
+  color: white;
+  vertical-align: middle;
+}
+
+.navbar-header {
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-header:visited {
+  color: white;
+}
+
+.navbar-separator {
+  margin-left: 5rem;
+}
+
+.navbar-link {
+  margin-left: 2rem;
+  font-size: 2rem;
+  text-decoration: none;
+}

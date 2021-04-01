@@ -11,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar">
+      <%= link_to 'Bookmark manager', root_path, class: 'navbar-header' %>
+      <span class="navbar-separator"></span>
+      <%= link_to 'Bookmarks', bookmarks_path, class: 'navbar-link' %>
+      <%= link_to 'Categories', categories_path, class: 'navbar-link' %>
+      <%= link_to 'Types', bookmark_types_path, class: 'navbar-link' %>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
