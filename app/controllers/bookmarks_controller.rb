@@ -27,9 +27,11 @@ class BookmarksController < ApplicationController
       if @bookmark.save
         format.html { redirect_to @bookmark, notice: "Bookmark was successfully created." }
         format.json { render :show, status: :created, location: @bookmark }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -40,9 +42,11 @@ class BookmarksController < ApplicationController
       if @bookmark.update(bookmark_params)
         format.html { redirect_to @bookmark, notice: "Bookmark was successfully updated." }
         format.json { render :show, status: :ok, location: @bookmark }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

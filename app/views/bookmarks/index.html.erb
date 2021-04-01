@@ -2,6 +2,13 @@
 
 <h1>Bookmarks</h1>
 
+<div id="form-container" class="container">
+</div>
+<div class="container">
+  <%= link_to 'New Bookmark', new_bookmark_path, remote: true, id: 'new-bookmark-link' %>
+  <%= link_to 'Cancel', '#', remote: true, id: 'cancel-link', class: 'hidden' %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -13,21 +20,7 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @bookmarks.each do |bookmark| %>
-      <tr>
-        <td><%= bookmark.name %></td>
-        <td><%= bookmark.url %></td>
-        <td><%= link_to bookmark.bookmark_type, bookmark.bookmark_type %></td>
-        <td><%= link_to bookmark.category, bookmark.category %></td>
-        <td><%= link_to 'Show', bookmark %></td>
-        <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
-        <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tbody id="bookmarks-table">
+    <%= render @bookmarks %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Bookmark', new_bookmark_path %>
