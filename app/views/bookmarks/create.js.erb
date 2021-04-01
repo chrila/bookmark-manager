@@ -1,1 +1,11 @@
-console.log("Created a new bookmark: " + "<%= @bookmark %>" + ".");
+// hide form
+cont = $("#form-container");
+cont.slideUp('fast');
+cont.html();
+
+// show/hide links
+$("#cancel-link").addClass('hidden');
+$("#new-bookmark-link").removeClass('hidden');
+
+// add new row to table
+$("#bookmarks-table").append("<%= escape_javascript(render partial: 'bookmarks/bookmark', locals: { bookmark: @bookmark } ) %>");

@@ -1,1 +1,11 @@
-console.log("Updated bookmark: " + "<%= @bookmark %>" + ".");
+// hide form
+cont = $("#form-container");
+cont.slideUp('fast');
+cont.html();
+
+// show/hide links
+$("#cancel-link").addClass('hidden');
+$("#new-bookmark-link").removeClass('hidden');
+
+// replace table row with updated info
+$("<%= "#bookmark-row-#{@bookmark.id}" %>").replaceWith("<%= escape_javascript(render partial: 'bookmarks/bookmark', locals: { bookmark: @bookmark } ) %>");

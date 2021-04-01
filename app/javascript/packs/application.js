@@ -14,3 +14,18 @@ require("chart.js")
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(document).on('turbolinks:load', function() {
+
+  // hide form when cancel link is clicked
+  $(document).on('click', function(e) {
+    let target = $(e.target);
+    if (target.attr('id') == 'cancel-link') {
+      e.preventDefault();
+      $("#form-container").slideUp('fast');
+      $("#cancel-link").addClass("hidden");
+      $("#new-bookmark-link").removeClass('hidden');
+    }
+  });
+
+});
