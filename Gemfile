@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # For generating test data
 gem 'faker'
+# For nice charts
+gem 'chartkick'

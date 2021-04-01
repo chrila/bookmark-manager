@@ -7,7 +7,7 @@ class Category < ApplicationRecord
     name
   end
 
-  def as_json
+  def to_json
     json = {
       name: name,
       public: public,
@@ -16,7 +16,7 @@ class Category < ApplicationRecord
 
     json['bookmarks'] = []
     bookmarks.each do |b|
-      json['bookmarks'] << b.as_json
+      json['bookmarks'] << b.to_json
     end
 
     json

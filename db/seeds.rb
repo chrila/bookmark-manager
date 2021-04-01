@@ -6,7 +6,7 @@ Category.delete_all
 BookmarkType.delete_all
 
 ## Categories
-20.times do
+10.times do
   Category.create!(name: Faker::Hipster.word, public: Faker::Boolean.boolean, parent_category: Category.all.sample)
 end
 

@@ -73,7 +73,7 @@ class CategoriesController < ApplicationController
 
     # create hash that includes the category and its sub-categories
     def category_deep_hash(category)
-      hash = category.as_json
+      hash = category.to_json
       hash['children'] = []
       category.child_categories.each do |c|
         hash['children'] << category_deep_hash(c)

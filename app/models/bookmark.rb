@@ -6,7 +6,7 @@ class Bookmark < ApplicationRecord
     name
   end
 
-  def as_json
+  def to_json
     {
       name: name,
       url: url,

@@ -18,6 +18,12 @@ body {
   margin: 0;
 }
 
+h1 {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 .container {
   margin-left: 2rem;
 }
