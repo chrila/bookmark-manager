@@ -1,0 +1,9 @@
+// show form
+cont = $("#form-container");
+cont.hide();
+cont.html("<%= escape_javascript(render partial: 'bookmarks/show', locals: { bookmark: @bookmark } ) %>");
+cont.slideDown('fast');
+
+// show/hide links
+$("#cancel-link").removeClass('hidden');
+$("#new-bookmark-link").addClass('hidden');
