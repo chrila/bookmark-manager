@@ -61,3 +61,7 @@ h1 {
 .hidden {
   visibility: hidden;
 }
+
+.cancel-link {
+  cursor: pointer;
+}
