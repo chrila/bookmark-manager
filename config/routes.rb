@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
+  get 'home/index'
   resources :bookmarks
   resources :categories
   resources :bookmark_types
 
-  get 'categories/:id/json', to: 'categories#json', as: 'categories_json'
-
-  root 'bookmarks#index'
+  root 'home#index'
 end

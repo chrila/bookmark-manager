@@ -8,6 +8,10 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1 or /categories/1.json
   def show
+    respond_to do |format|
+      format.json { render json: category_deep_hash(@category) }
+      format.html
+    end
   end
 
   # GET /categories/new
@@ -17,11 +21,6 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-  end
-
-  # GET /categories/1/json
-  def json
-    render json: category_deep_hash(@category)
   end
 
   # POST /categories or /categories.json
