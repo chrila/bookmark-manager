@@ -6,4 +6,19 @@ class Category < ApplicationRecord
   def to_s
     name
   end
+
+  def as_json
+    json = {
+      name: name,
+      public: public,
+      parent_category: parent_category.to_s
+    }
+
+    json['bookmarks'] = []
+    bookmarks.each do |b|
+      json['bookmarks'] << b.as_json
+    end
+
+    json
+  end
 end

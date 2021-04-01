@@ -5,4 +5,12 @@ class Bookmark < ApplicationRecord
   def to_s
     name
   end
+
+  def as_json
+    {
+      name: name,
+      url: url,
+      type: bookmark_type.to_s
+    }
+  end
 end

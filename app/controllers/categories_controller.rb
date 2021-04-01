@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[ show edit update destroy ]
+  before_action :set_category, only: %i[ show edit update destroy json ]
 
   # GET /categories or /categories.json
   def index
@@ -17,6 +17,11 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+  end
+
+  # GET /categories/1/json
+  def json
+    render json: category_deep_hash(@category)
   end
 
   # POST /categories or /categories.json
@@ -65,5 +70,15 @@ class CategoriesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def category_params
       params.require(:category).permit(:name, :public, :category_id)
+    end
+
+    # create hash that includes the category and its sub-categories
+    def category_deep_hash(category)
+      hash = category.as_json
+      hash['children'] = []
+      category.child_categories.each do |c|
+        hash['children'] << category_deep_hash(c)
+      end
+      hash
     end
 end
