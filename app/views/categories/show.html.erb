@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @category.category_id %>
+  <strong>Parent Category:</strong>
+  <%= @category.parent_category ? link_to(@category.parent_category, @category.parent_category) : '(none)' %>
 </p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
