@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_03_31_232331) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bookmark_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 2021_03_31_232331) do
   create_table "bookmarks", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.integer "bookmark_type_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "bookmark_type_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bookmark_type_id"], name: "index_bookmarks_on_bookmark_type_id"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_03_31_232331) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.boolean "public"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_categories_on_category_id"
